@@ -1,0 +1,33 @@
+.sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__item {
+  display: block;
+  text-align: left;
+  padding: 15px 15px;
+  background-color: white;
+  font-weight: 300;
+  transition: 0.2s all;
+}
+
+.sidebar__item:hover {
+  background-color: orange;
+  color: white;
+}
+
+.sidebar__item.active {
+  background-color: orange;
+  color: white;
+}
+
+.sidebar__submenu {
+  height: 0px;
+  overflow: none;
+  padding-left: 25px;
+}
+
+.sidebar__sublink {
+}

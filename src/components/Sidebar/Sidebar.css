@@ -2,18 +2,24 @@
   width: 200px;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  position: relative;
 }
 
-.sidebar__item {
+.sidebar__title {
   display: block;
-  text-align: left;
   padding: 15px 15px;
-  background-color: white;
   font-weight: 300;
   transition: 0.2s all;
+  height: auto;
+  cursor: pointer;
+  text-decoration: none;
+
+  border-bottom: 1px solid #ccc;
 }
 
-.sidebar__item:hover {
+.sidebar__title:hover {
   background-color: orange;
   color: white;
 }
@@ -23,11 +29,41 @@
   color: white;
 }
 
+.sidebar__item.active .sidebar__submenu {
+  height: auto;
+}
+
 .sidebar__submenu {
   height: 0px;
-  overflow: none;
-  padding-left: 25px;
+  overflow: hidden;
+}
+
+.sidebar__item.active .sidebar__submenu {
+  height: auto;
 }
 
 .sidebar__sublink {
+  background-color: white;
+  color: black;
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+  display: block;
+
+  transition: 0.2s all;
+}
+
+.sidebar__sublink:hover {
+  background-color: green;
+  color: white;
+}
+
+.showAll {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  border-top: 1px solid #ccc;
 }

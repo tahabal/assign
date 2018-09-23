@@ -4,8 +4,6 @@ import Layout from "./Layout";
 import List from "./components/List/List";
 import "./App.css";
 
-import data from "./data.json";
-
 class App extends Component {
   render() {
     return (

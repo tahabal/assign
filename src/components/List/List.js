@@ -15,8 +15,7 @@ export default class List extends Component {
       list: [],
       sort: "Descending",
       newItemType: "",
-      newItemTitle: "",
-      loading: true
+      newItemTitle: ""
     };
 
     this.handleSorting = this.handleSorting.bind(this);
@@ -97,7 +96,7 @@ export default class List extends Component {
         ratingChange={this.handleRatingChange}
       />
     ));
-    this.setState({ loading: false, list: arr, filteredData: list });
+    this.setState({ list: arr, filteredData: list });
   }
 
   handleSorting() {

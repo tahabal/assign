@@ -4,15 +4,13 @@ import uuid from "uuid";
 import ListItem from "./ListItem";
 import "./List.css";
 
-import mockData from "../../data.json";
-
 export default class List extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       filterType: this.props.match.params.property,
-      data: mockData,
+      data: this.props.data,
       filteredData: [],
       list: [],
       sort: "Descending",
@@ -117,7 +115,10 @@ export default class List extends Component {
     let currentData = this.state.data.filter(val => {
       return val.id !== id;
     });
-    this.setState({ data: currentData }, () => this.handleFiltering());
+    this.setState({ data: currentData }, () => {
+      this.handleFiltering();
+      this.props.onEdit(currentData);
+    });
   }
 
   handleRatingChange(id, rating) {
@@ -128,7 +129,10 @@ export default class List extends Component {
       return val.id !== id;
     });
 
-    this.setState({ data: currentData }, () => this.handleFiltering());
+    this.setState({ data: currentData }, () => {
+      this.handleFiltering();
+      this.props.onEdit(currentData);
+    });
   }
 
   handleInput(e) {
@@ -144,7 +148,11 @@ export default class List extends Component {
     };
     let newData = this.state.data.slice();
     newData.push(newItem);
-    this.setState({ data: newData }, () => this.handleFiltering());
+    this.setState({ data: newData }, () => {
+      this.handleFiltering();
+      console.log(newData);
+      this.props.onEdit(newData);
+    });
   }
 
   render() {

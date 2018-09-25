@@ -45,16 +45,33 @@
   flex: 4;
 }
 .list-item__close {
+    display:flex;
+    justify-content: center;
+    align-items: center;
   flex: 1;
-  font-size: 2rem;
-  transition: 0.2s all;
+  height:25px;
+  line-height: 25px;
+  
   text-align: center;
-
-  cursor: pointer;
 }
 
-.list-item__close:hover {
-  transform: scale(1.1) rotate(90deg);
+.list-item__close div {
+    display:inline-block;
+    cursor: pointer;
+    transition: 0.2s all;
+    height: 25px;
+    width:25px;
+    border-radius: 100%;
+    background-color:#999;
+    color: white;
+    font-size: 1.65rem;
+    
+}
+
+.list-item__close div:hover {
+    transform:rotate(90deg);
+    background-color:darkred;
+    color:white;
 }
 
 .sort {
@@ -64,6 +81,7 @@
   padding: 10px 0px;
   border-bottom: 1px solid #ccc;
   font-weight: 600;
+  height:30px
 }
 
 .sort-order {
@@ -78,7 +96,7 @@
   align-items: center;
   justify-content: space-evenly;
   border-top: 1px solid #ccc;
-  height: 49px;
+  height: 51px;
   background-color: #fff;
   position: fixed;
   bottom: 0;

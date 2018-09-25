@@ -149,7 +149,6 @@ export default class List extends Component {
     newData.push(newItem);
     this.setState({ data: newData }, () => {
       this.handleFiltering();
-      console.log(newData);
       this.props.onEdit(newData);
     });
   }

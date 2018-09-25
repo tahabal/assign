@@ -21,7 +21,7 @@ const ListItem = function(props) {
         />
       </div>
       <div className="list-item__close">
-        <span onClick={() => props.handleRemove(props.id)}>×</span>
+        <div onClick={() => props.handleRemove(props.id)}>×</div>
       </div>
     </div>
   );

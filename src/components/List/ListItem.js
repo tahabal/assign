@@ -20,8 +20,12 @@ const ListItem = function(props) {
           onChange={newRating => props.ratingChange(props.id, newRating)}
         />
       </div>
-      <div className="list-item__close">
-        <div onClick={() => props.handleRemove(props.id)}>×</div>
+
+      <div
+        className="list-item__close"
+        onClick={() => props.handleRemove(props.id)}
+      >
+        ×
       </div>
     </div>
   );

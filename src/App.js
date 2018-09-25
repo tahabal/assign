@@ -24,11 +24,12 @@ class App extends Component {
   }
 
   handleClick(e, option) {
+    //sent to children. takes event target and toggles if it's active or not. for menu headers.
     e.target.parentNode.classList.toggle("active");
   }
 
   editData(newData) {
-    console.log(newData);
+    //take updated data from children, push it to state, then remake type and rating list data for sidebar
     this.setState({ data: newData }, () => this.createSidebarArrays());
   }
 

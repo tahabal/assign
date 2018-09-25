@@ -101,26 +101,34 @@ export default class List extends Component {
 
   handleSorting() {
     let sort;
+    //check the current sort type from state and revert it
     if (this.state.sort === "Ascending") {
       sort = "Descending";
     } else {
       sort = "Ascending";
     }
 
+    //push new sort type into state, then remake list
+
     this.setState({ sort }, () => this.makeList(this.state.filteredData));
   }
 
   handleRemove(id) {
+    //create new entry list without the removed item
+
     let currentData = this.state.data.filter(val => {
       return val.id !== id;
     });
+
     this.setState({ data: currentData }, () => {
       this.handleFiltering();
+      //send the updated item list to parents state
       this.props.onEdit(currentData);
     });
   }
 
   handleRatingChange(id, rating) {
+    //find and change the rating of item with given id
     let currentData = this.state.data.filter(val => {
       if (val.id === id) {
         return (val.rating = rating);
@@ -139,14 +147,19 @@ export default class List extends Component {
   }
 
   addNewItem() {
+    //create object for new item entry
     let newItem = {
       id: uuid(),
       type: this.state.newItemType,
       title: this.state.newItemTitle,
       rating: 3
     };
+    //create a copy of current item list
     let newData = this.state.data.slice();
+    //add new item to the copy
     newData.push(newItem);
+
+    //replace the item list with new copy
     this.setState({ data: newData }, () => {
       this.handleFiltering();
       this.props.onEdit(newData);
@@ -154,6 +167,7 @@ export default class List extends Component {
   }
 
   render() {
+    //check if sort panel should be rendered or not. it should only render when items are listed by rating
     let shouldSortBeRendered = this.state.filterType !== "rating";
 
     return (

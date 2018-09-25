@@ -10,6 +10,7 @@ export default class Sidebar extends Component {
   }
 
   renderTypeList() {
+    //create children array from incoming list in props.
     return this.props.typeList.map((val, index) => {
       return (
         <Link className="sidebar__sublink" to={"/type/" + val} key={index}>
@@ -20,6 +21,8 @@ export default class Sidebar extends Component {
   }
 
   renderRatingList() {
+    //create children array from incoming list in props.
+
     let content = [];
     Object.entries(this.props.ratingList).forEach(item => {
       let key = item[0];
